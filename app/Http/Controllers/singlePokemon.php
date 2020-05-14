@@ -15,6 +15,10 @@ class singlePokemon extends Controller
 
         $generalInfo = Http::get('https://pokeapi.co/api/v2/pokemon/'.$id)->object();
 
+        if (!Http::get('https://pokeapi.co/api/v2/pokemon-species/'. $id)->object()){
+            return redirect()->back()->withErrors(['noFound' => 'No poke was found']);
+        }
+
         $chainURL = Http::get('https://pokeapi.co/api/v2/pokemon-species/'. $id)->object()->evolution_chain->url;
 
         $chainData = Http::get($chainURL)->object();

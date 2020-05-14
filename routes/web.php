@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::get('/pokemon/{id}', 'singlePokemon@index')->name('route.onePokemon');
 
 Route::get('/homepage', 'HomepageController@index')->name('route.homepage');
+
+Route::post('/search', 'pokeSearch@index')->name('route.pokeSearch');

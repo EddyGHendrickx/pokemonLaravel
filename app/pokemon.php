@@ -23,7 +23,7 @@ class pokemon extends Model
                 $second[] = [$secEvolution->species->name, $this->getSprite($secEvolution->species->name)];
             }
 
-            if (isset($chainData->chain->evolves_to[0]->evolves_to)) {
+            if (!empty($chainData->chain->evolves_to[0]->evolves_to)) {
                 foreach ($chainData->chain->evolves_to[0]->evolves_to as $thirdEvolution) {
                     $third[] = [$thirdEvolution->species->name, $this->getSprite($thirdEvolution->species->name)];
                 }
