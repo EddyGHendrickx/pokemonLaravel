@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
 
@@ -23,3 +24,7 @@ Route::get('/pokemon/{id}', 'singlePokemon@index')->name('route.onePokemon');
 Route::get('/homepage', 'HomepageController@index')->name('route.homepage');
 
 Route::post('/search', 'pokeSearch@index')->name('route.pokeSearch');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

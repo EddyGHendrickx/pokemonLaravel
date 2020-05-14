@@ -10,15 +10,19 @@
         }
 
     </style>
-    <h1 class="container"> {{ $response->name }} ID: {{ $response->id }} </h1>
-    <img src="{{ $response->sprites->front_default }}" alt="">
-    <ul>
-        @for ($i = 0; $i < 4; $i++)
-            <li>
-                {{ $response->moves[$i]->move->name }}
-            </li>
-        @endfor
-    </ul>
+    <h1 class="container text-center"> {{ $response->name }} ID: {{ $response->id }} </h1>
+
+    <div class="d-flex justify-content-center align-content-center m-auto mb-4">
+        <img src="{{ $response->sprites->front_default }}" style="height: auto; width: 100px" alt="">
+        <ul>
+            @for ($i = 0; $i < 4; $i++)
+                <li>
+                    {{ $response->moves[$i]->move->name }}
+                </li>
+            @endfor
+        </ul>
+    </div>
+
     <h2 class="text-center m-auto">EVOLUTION CHAIN</h2>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
